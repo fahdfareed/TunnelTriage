@@ -10,12 +10,10 @@ import { TunnelDetail } from "./components/TunnelDetail";
 import { FindingsPanel } from "./components/FindingsPanel";
 import { MemoPanel } from "./components/MemoPanel";
 import { ValidationPanel } from "./components/ValidationPanel";
-import { AssumptionsPanel } from "./components/AssumptionsPanel";
-import { DataNotesPanel } from "./components/DataNotesPanel";
 import { computeDiff, type PlanDiff } from "./components/DiffBanner";
 
-type Tab = "Plan" | "Tunnel" | "Findings" | "Memo" | "Validation" | "Assumptions" | "Data notes";
-const TABS: Tab[] = ["Plan", "Tunnel", "Findings", "Memo", "Validation", "Assumptions", "Data notes"];
+type Tab = "Plan" | "Tunnel" | "Findings" | "Memo" | "Validation";
+const TABS: Tab[] = ["Plan", "Tunnel", "Findings", "Memo", "Validation"];
 
 export default function App() {
   const [groups, setGroups] = useState<Group[]>([]);
@@ -123,8 +121,6 @@ export default function App() {
             {tab === "Findings" && <FindingsPanel tunnels={tunnels} onChanged={onFindingsChanged} />}
             {tab === "Memo" && <MemoPanel plan={plan} />}
             {tab === "Validation" && <ValidationPanel />}
-            {tab === "Assumptions" && <AssumptionsPanel />}
-            {tab === "Data notes" && <DataNotesPanel />}
           </div>
         </div>
       </div>
