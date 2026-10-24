@@ -1,0 +1,1090 @@
+{
+ "contract": "130548",
+ "title": "Boston - Tunnel Preservation within MHS Tunnels",
+ "bid_opening": "2025-08-19",
+ "source": "MassDOT staff summary (prepared 8/25/2025) with CMS105/CMS106 bid tabulation and bid average reports; items transcribed by hand",
+ "scope_tunnels": [
+  "CALLAHAN TUNNEL",
+  "TED WILLIAMS TUNNEL",
+  "THOMAS P. TIP ONEILL JR TUNNEL",
+  "I-90 CONNECTOR TUNNEL"
+ ],
+ "office_estimate": 41871668.0,
+ "bids": {
+  "J. F. White Contracting Co": 52182001.0,
+  "SPS New England Inc": 56334301.5
+ },
+ "eligible_bidders": 6,
+ "bidders_who_bid": 2,
+ "program_budget": {
+  "bid": 52182001.0,
+  "contingencies_15pct": 7827300.14,
+  "construction_engineering_5pct": 2609100.05,
+  "specialty_services": 15000.0,
+  "traffic_police": 2093600.0,
+  "total": 64727001.19
+ },
+ "duration_days": 1095,
+ "items_note": "Subset: items with a low-bid amount of roughly $100K or more, plus items used to derive unit rates. The remainder of the $52.18M is small items.",
+ "items": [
+  {
+   "item": "100.1",
+   "description": "Base labor rate",
+   "qty": 7500,
+   "unit": "HR",
+   "office_estimate": 160,
+   "low_bid": 345,
+   "two_bid_avg": 285,
+   "category": "General conditions",
+   "maps_to": null
+  },
+  {
+   "item": "100.11",
+   "description": "Inspection of leak sealing locations",
+   "qty": 1900,
+   "unit": "HR",
+   "office_estimate": 125,
+   "low_bid": 392,
+   "two_bid_avg": 200,
+   "category": "Leak sealing",
+   "maps_to": null
+  },
+  {
+   "item": "107.833",
+   "description": "Wall panel removed, furnished and installed",
+   "qty": 600,
+   "unit": "SF",
+   "office_estimate": 105,
+   "low_bid": 265,
+   "two_bid_avg": 680,
+   "category": "Concrete & wall repair",
+   "maps_to": {
+    "unit_type": "area/length",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "107.836",
+   "description": "Install tile 8x8",
+   "qty": 6000,
+   "unit": "EA",
+   "office_estimate": 30,
+   "low_bid": 20,
+   "two_bid_avg": 48.51,
+   "category": "Steel, electrical & other",
+   "maps_to": null
+  },
+  {
+   "item": "107.855",
+   "description": "Pressure injection of cracks",
+   "qty": 1600,
+   "unit": "FT",
+   "office_estimate": 50,
+   "low_bid": 227,
+   "two_bid_avg": 65,
+   "category": "Leak sealing",
+   "maps_to": {
+    "unit_type": "area/length",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "107.881",
+   "description": "Leak sealing - type I",
+   "qty": 175,
+   "unit": "HR",
+   "office_estimate": 1065,
+   "low_bid": 1958,
+   "two_bid_avg": 700,
+   "category": "Leak sealing",
+   "maps_to": null
+  },
+  {
+   "item": "107.882",
+   "description": "Leak sealing - type II",
+   "qty": 175,
+   "unit": "HR",
+   "office_estimate": 1065,
+   "low_bid": 1958,
+   "two_bid_avg": 750,
+   "category": "Leak sealing",
+   "maps_to": null
+  },
+  {
+   "item": "107.883",
+   "description": "Leak sealing - type III",
+   "qty": 175,
+   "unit": "HR",
+   "office_estimate": 1120,
+   "low_bid": 1958,
+   "two_bid_avg": 800,
+   "category": "Leak sealing",
+   "maps_to": null
+  },
+  {
+   "item": "107.884",
+   "description": "Leak sealing - type IV",
+   "qty": 2800,
+   "unit": "HR",
+   "office_estimate": 2440,
+   "low_bid": 1960,
+   "two_bid_avg": 2100,
+   "category": "Leak sealing",
+   "maps_to": null
+  },
+  {
+   "item": "107.885",
+   "description": "Leak sealing - type V",
+   "qty": 175,
+   "unit": "HR",
+   "office_estimate": 2440,
+   "low_bid": 2059,
+   "two_bid_avg": 1050,
+   "category": "Leak sealing",
+   "maps_to": null
+  },
+  {
+   "item": "107.892",
+   "description": "Wearing surface repair",
+   "qty": 1000,
+   "unit": "SF",
+   "office_estimate": 250,
+   "low_bid": 61,
+   "two_bid_avg": 135,
+   "category": "Concrete & wall repair",
+   "maps_to": {
+    "unit_type": "area/length",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "107.893",
+   "description": "Concrete and slurry wall repair - type I",
+   "qty": 250,
+   "unit": "SF",
+   "office_estimate": 300,
+   "low_bid": 281,
+   "two_bid_avg": 100,
+   "category": "Concrete & wall repair",
+   "maps_to": {
+    "unit_type": "area/length",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "107.894",
+   "description": "Concrete and slurry wall repair - type II",
+   "qty": 350,
+   "unit": "CF",
+   "office_estimate": 750,
+   "low_bid": 1200,
+   "two_bid_avg": 250,
+   "category": "Concrete & wall repair",
+   "maps_to": null
+  },
+  {
+   "item": "107.895",
+   "description": "Concrete and slurry wall repair - type III",
+   "qty": 500,
+   "unit": "CF",
+   "office_estimate": 1200,
+   "low_bid": 960,
+   "two_bid_avg": 275,
+   "category": "Concrete & wall repair",
+   "maps_to": null
+  },
+  {
+   "item": "107.896",
+   "description": "Concrete and slurry wall repair - type IV",
+   "qty": 25,
+   "unit": "CY",
+   "office_estimate": 17000,
+   "low_bid": 23500,
+   "two_bid_avg": 1000,
+   "category": "Concrete & wall repair",
+   "maps_to": null
+  },
+  {
+   "item": "107.897",
+   "description": "Overhead concrete repair",
+   "qty": 50,
+   "unit": "CY",
+   "office_estimate": 42000,
+   "low_bid": 47500,
+   "two_bid_avg": 69750,
+   "category": "Concrete & wall repair",
+   "maps_to": null
+  },
+  {
+   "item": "107.898",
+   "description": "Removal of deteriorated concrete",
+   "qty": 1000,
+   "unit": "SF",
+   "office_estimate": 25,
+   "low_bid": 227,
+   "two_bid_avg": 75,
+   "category": "Concrete & wall repair",
+   "maps_to": {
+    "unit_type": "area/length",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "107.972",
+   "description": "Callahan portal pump station stair replacement",
+   "qty": 2,
+   "unit": "EA",
+   "office_estimate": 100000,
+   "low_bid": 90000,
+   "two_bid_avg": 85650,
+   "category": "Doors & egress",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "107.973",
+   "description": "Callahan ceiling stringer type 1 replacement",
+   "qty": 25,
+   "unit": "EA",
+   "office_estimate": 13000,
+   "low_bid": 25200,
+   "two_bid_avg": 17500,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "107.974",
+   "description": "Callahan ceiling stringer type 2 replacement",
+   "qty": 5,
+   "unit": "EA",
+   "office_estimate": 18000,
+   "low_bid": 33000,
+   "two_bid_avg": 22500,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "107.975",
+   "description": "Hanger type 1 install",
+   "qty": 10,
+   "unit": "EA",
+   "office_estimate": 12000,
+   "low_bid": 18500,
+   "two_bid_avg": 12500,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "107.976",
+   "description": "Hanger type 2 install",
+   "qty": 10,
+   "unit": "EA",
+   "office_estimate": 14000,
+   "low_bid": 16800,
+   "two_bid_avg": 15500,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "107.977",
+   "description": "Hanger type 3 install",
+   "qty": 15,
+   "unit": "EA",
+   "office_estimate": 15000,
+   "low_bid": 16600,
+   "two_bid_avg": 15575,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "107.978",
+   "description": "Hanger type 4 install",
+   "qty": 5,
+   "unit": "EA",
+   "office_estimate": 15000,
+   "low_bid": 18900,
+   "two_bid_avg": 17250,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "107.981",
+   "description": "Replace single door",
+   "qty": 5,
+   "unit": "EA",
+   "office_estimate": 20000,
+   "low_bid": 24400,
+   "two_bid_avg": 25000,
+   "category": "Doors & egress",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "107.982",
+   "description": "Rebuild single door",
+   "qty": 5,
+   "unit": "EA",
+   "office_estimate": 10000,
+   "low_bid": 9573,
+   "two_bid_avg": 3500,
+   "category": "Doors & egress",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "107.983",
+   "description": "Rebuild double door",
+   "qty": 5,
+   "unit": "EA",
+   "office_estimate": 12000,
+   "low_bid": 12100,
+   "two_bid_avg": 4000,
+   "category": "Doors & egress",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "107.984",
+   "description": "Rebuild I-90 cross passage door",
+   "qty": 5,
+   "unit": "EA",
+   "office_estimate": 15000,
+   "low_bid": 12500,
+   "two_bid_avg": 5500,
+   "category": "Doors & egress",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "107.985",
+   "description": "Rebuild I-93 cross passage door",
+   "qty": 25,
+   "unit": "EA",
+   "office_estimate": 15000,
+   "low_bid": 13700,
+   "two_bid_avg": 5500,
+   "category": "Doors & egress",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "107.991",
+   "description": "Stainless steel panel remove and reset",
+   "qty": 200,
+   "unit": "EA",
+   "office_estimate": 10,
+   "low_bid": 405,
+   "two_bid_avg": 50,
+   "category": "Concrete & wall repair",
+   "maps_to": null
+  },
+  {
+   "item": "107.993",
+   "description": "Misc. metal, electrical and mechanical remove and reset",
+   "qty": 250,
+   "unit": "HR",
+   "office_estimate": 95,
+   "low_bid": 650,
+   "two_bid_avg": 150,
+   "category": "Steel, electrical & other",
+   "maps_to": null
+  },
+  {
+   "item": "107.994",
+   "description": "Wall panel top anchor replacement - type 1",
+   "qty": 300,
+   "unit": "EA",
+   "office_estimate": 750,
+   "low_bid": 1807,
+   "two_bid_avg": 1850,
+   "category": "Concrete & wall repair",
+   "maps_to": null
+  },
+  {
+   "item": "107.995",
+   "description": "Wall panel top anchor replacement - type 2",
+   "qty": 150,
+   "unit": "EA",
+   "office_estimate": 1600,
+   "low_bid": 2256,
+   "two_bid_avg": 2875,
+   "category": "Concrete & wall repair",
+   "maps_to": null
+  },
+  {
+   "item": "107.996",
+   "description": "Wall panel top anchor replacement - type 3",
+   "qty": 25,
+   "unit": "EA",
+   "office_estimate": 6000,
+   "low_bid": 8345,
+   "two_bid_avg": 7200,
+   "category": "Concrete & wall repair",
+   "maps_to": null
+  },
+  {
+   "item": "107.997",
+   "description": "Removal of SIP form within girder bay",
+   "qty": 10000,
+   "unit": "SF",
+   "office_estimate": 5,
+   "low_bid": 21,
+   "two_bid_avg": 42,
+   "category": "Fireproofing",
+   "maps_to": null
+  },
+  {
+   "item": "107.998",
+   "description": "Repair or replacement of fireproofing",
+   "qty": 20000,
+   "unit": "SF",
+   "office_estimate": 225,
+   "low_bid": 95,
+   "two_bid_avg": 195,
+   "category": "Fireproofing",
+   "maps_to": {
+    "unit_type": "area/length",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "107.999",
+   "description": "Install rigid board fireproofing",
+   "qty": 6250,
+   "unit": "SF",
+   "office_estimate": 150,
+   "low_bid": 100,
+   "two_bid_avg": 192,
+   "category": "Fireproofing",
+   "maps_to": {
+    "unit_type": "area/length",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "108.002",
+   "description": "New girder bay hatch",
+   "qty": 15,
+   "unit": "EA",
+   "office_estimate": 1230,
+   "low_bid": 9267,
+   "two_bid_avg": 10500,
+   "category": "Steel, electrical & other",
+   "maps_to": null
+  },
+  {
+   "item": "160.2",
+   "description": "Controlled low-strength material",
+   "qty": 100,
+   "unit": "CY",
+   "office_estimate": 300,
+   "low_bid": 1110,
+   "two_bid_avg": 403,
+   "category": "Drainage & pump stations",
+   "maps_to": null
+  },
+  {
+   "item": "221.12",
+   "description": "Frame and cover - circular (type 2)",
+   "qty": 60,
+   "unit": "EA",
+   "office_estimate": 2600,
+   "low_bid": 8991,
+   "two_bid_avg": 6000,
+   "category": "Drainage & pump stations",
+   "maps_to": null
+  },
+  {
+   "item": "221.15",
+   "description": "Frame and cover - rectangular (type 2)",
+   "qty": 10,
+   "unit": "EA",
+   "office_estimate": 3000,
+   "low_bid": 12500,
+   "two_bid_avg": 7500,
+   "category": "Drainage & pump stations",
+   "maps_to": null
+  },
+  {
+   "item": "221.16",
+   "description": "Frame and cover - rectangular (type 3)",
+   "qty": 20,
+   "unit": "EA",
+   "office_estimate": 4000,
+   "low_bid": 17500,
+   "two_bid_avg": 11000,
+   "category": "Drainage & pump stations",
+   "maps_to": null
+  },
+  {
+   "item": "222.01",
+   "description": "Roadway joint underdrain assembly - type A",
+   "qty": 100,
+   "unit": "FT",
+   "office_estimate": 2800,
+   "low_bid": 1546,
+   "two_bid_avg": 1325,
+   "category": "Drainage & pump stations",
+   "maps_to": null
+  },
+  {
+   "item": "223.21",
+   "description": "Tunnel drain inlet grate",
+   "qty": 250,
+   "unit": "EA",
+   "office_estimate": 400,
+   "low_bid": 668,
+   "two_bid_avg": 450,
+   "category": "Drainage & pump stations",
+   "maps_to": null
+  },
+  {
+   "item": "223.22",
+   "description": "Tunnel drain inlet grate and frame",
+   "qty": 50,
+   "unit": "EA",
+   "office_estimate": 800,
+   "low_bid": 2916,
+   "two_bid_avg": 2100,
+   "category": "Drainage & pump stations",
+   "maps_to": null
+  },
+  {
+   "item": "223.24",
+   "description": "Install tunnel drain inlet grate and frame",
+   "qty": 50,
+   "unit": "EA",
+   "office_estimate": 3500,
+   "low_bid": 6472,
+   "two_bid_avg": 3275,
+   "category": "Drainage & pump stations",
+   "maps_to": null
+  },
+  {
+   "item": "747",
+   "description": "Equipment for engineer's field office",
+   "qty": 1,
+   "unit": "LS",
+   "office_estimate": 30000,
+   "low_bid": 645700,
+   "two_bid_avg": 18500,
+   "category": "General conditions",
+   "maps_to": null
+  },
+  {
+   "item": "748",
+   "description": "Mobilization",
+   "qty": 1,
+   "unit": "LS",
+   "office_estimate": 500000,
+   "low_bid": 1560000,
+   "two_bid_avg": 1450250,
+   "category": "General conditions",
+   "maps_to": null
+  },
+  {
+   "item": "748.5",
+   "description": "Construction noise control",
+   "qty": 1,
+   "unit": "LS",
+   "office_estimate": 15000,
+   "low_bid": 125000,
+   "two_bid_avg": 18750,
+   "category": "General conditions",
+   "maps_to": null
+  },
+  {
+   "item": "813.62",
+   "description": "Ground bus repair",
+   "qty": 25,
+   "unit": "EA",
+   "office_estimate": 500,
+   "low_bid": 10600,
+   "two_bid_avg": 1150,
+   "category": "Steel, electrical & other",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "813.63",
+   "description": "Ground bus replacement",
+   "qty": 25,
+   "unit": "EA",
+   "office_estimate": 1500,
+   "low_bid": 4008,
+   "two_bid_avg": 1250,
+   "category": "Steel, electrical & other",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "960.1",
+   "description": "Structural steel - coated steel",
+   "qty": 4000,
+   "unit": "LB",
+   "office_estimate": 35,
+   "low_bid": 59,
+   "two_bid_avg": 66,
+   "category": "Steel, electrical & other",
+   "maps_to": null
+  },
+  {
+   "item": "960.13",
+   "description": "Stainless steel",
+   "qty": 4280,
+   "unit": "LB",
+   "office_estimate": 50,
+   "low_bid": 76,
+   "two_bid_avg": 88,
+   "category": "Steel, electrical & other",
+   "maps_to": null
+  },
+  {
+   "item": "961.3",
+   "description": "Clean and paint structural steel",
+   "qty": 225,
+   "unit": "FT",
+   "office_estimate": 8000,
+   "low_bid": 1327,
+   "two_bid_avg": 5300,
+   "category": "Steel, electrical & other",
+   "maps_to": null
+  },
+  {
+   "item": "961.4",
+   "description": "Clean and paint soldier piles",
+   "qty": 50,
+   "unit": "EA",
+   "office_estimate": 17500,
+   "low_bid": 4647,
+   "two_bid_avg": 9500,
+   "category": "Steel, electrical & other",
+   "maps_to": null
+  },
+  {
+   "item": "961.5",
+   "description": "Clean and prime Callahan ceiling stringer",
+   "qty": 200,
+   "unit": "FT",
+   "office_estimate": 600,
+   "low_bid": 557,
+   "two_bid_avg": 1450,
+   "category": "Callahan ceiling system",
+   "maps_to": null
+  },
+  {
+   "item": "998.11",
+   "description": "TWT standpipe joint repair - type 1",
+   "qty": 10,
+   "unit": "EA",
+   "office_estimate": 170000,
+   "low_bid": 220000,
+   "two_bid_avg": 275000,
+   "category": "Standpipe & trench",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.12",
+   "description": "TWT standpipe joint repair - type 2",
+   "qty": 5,
+   "unit": "EA",
+   "office_estimate": 200000,
+   "low_bid": 334000,
+   "two_bid_avg": 285000,
+   "category": "Standpipe & trench",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.13",
+   "description": "TWT standpipe joint repair - type 3",
+   "qty": 6,
+   "unit": "EA",
+   "office_estimate": 50000,
+   "low_bid": 61900,
+   "two_bid_avg": 165000,
+   "category": "Standpipe & trench",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.14",
+   "description": "TWT standpipe joint repair - type 4",
+   "qty": 1,
+   "unit": "EA",
+   "office_estimate": 200000,
+   "low_bid": 189200,
+   "two_bid_avg": 283000,
+   "category": "Standpipe & trench",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.15",
+   "description": "TWT standpipe joint repair - type 5",
+   "qty": 2,
+   "unit": "EA",
+   "office_estimate": 180000,
+   "low_bid": 250000,
+   "two_bid_avg": 295000,
+   "category": "Standpipe & trench",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.2",
+   "description": "Callahan exhaust plenum cleaning and survey",
+   "qty": 1,
+   "unit": "LS",
+   "office_estimate": 325000,
+   "low_bid": 1353000,
+   "two_bid_avg": 755896,
+   "category": "Ventilation plenums & ducts",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.221",
+   "description": "Replacement Callahan ceiling panel (rectangle)",
+   "qty": 185,
+   "unit": "EA",
+   "office_estimate": 11000,
+   "low_bid": 11600,
+   "two_bid_avg": 11500,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.222",
+   "description": "Replacement Callahan ceiling panel (trapezoid)",
+   "qty": 10,
+   "unit": "EA",
+   "office_estimate": 12000,
+   "low_bid": 11600,
+   "two_bid_avg": 15000,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.223",
+   "description": "Replacement Callahan ceiling panel (exhaust opening)",
+   "qty": 35,
+   "unit": "EA",
+   "office_estimate": 16000,
+   "low_bid": 11600,
+   "two_bid_avg": 15000,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.23",
+   "description": "Install replacement Callahan ceiling panel",
+   "qty": 233,
+   "unit": "EA",
+   "office_estimate": 10000,
+   "low_bid": 10200,
+   "two_bid_avg": 7500,
+   "category": "Callahan ceiling system",
+   "maps_to": null
+  },
+  {
+   "item": "998.231",
+   "description": "Callahan ceiling panel repair - type A",
+   "qty": 500,
+   "unit": "SF",
+   "office_estimate": 20,
+   "low_bid": 163,
+   "two_bid_avg": 20,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "area/length",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "998.232",
+   "description": "Callahan ceiling panel repair - type B",
+   "qty": 500,
+   "unit": "SF",
+   "office_estimate": 600,
+   "low_bid": 730,
+   "two_bid_avg": 250,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "area/length",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.233",
+   "description": "Callahan ceiling panel flue retrofit",
+   "qty": 10,
+   "unit": "EA",
+   "office_estimate": 5000,
+   "low_bid": 17900,
+   "two_bid_avg": 14500,
+   "category": "Callahan ceiling system",
+   "maps_to": {
+    "unit_type": "each",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "998.25",
+   "description": "Callahan exhaust plenum balancing",
+   "qty": 1,
+   "unit": "LS",
+   "office_estimate": 225000,
+   "low_bid": 174200,
+   "two_bid_avg": 285500,
+   "category": "Ventilation plenums & ducts",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "998.31",
+   "description": "Callahan supply air duct invert rehabilitation - west",
+   "qty": 1,
+   "unit": "LS",
+   "office_estimate": 575000,
+   "low_bid": 1375000,
+   "two_bid_avg": 1455855,
+   "category": "Ventilation plenums & ducts",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.32",
+   "description": "Callahan supply air duct invert rehabilitation - east",
+   "qty": 1,
+   "unit": "LS",
+   "office_estimate": 575000,
+   "low_bid": 716400,
+   "two_bid_avg": 1350450,
+   "category": "Ventilation plenums & ducts",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.33",
+   "description": "Callahan supply air duct invert repairs",
+   "qty": 1200,
+   "unit": "SF",
+   "office_estimate": 200,
+   "low_bid": 339,
+   "two_bid_avg": 550,
+   "category": "Ventilation plenums & ducts",
+   "maps_to": {
+    "unit_type": "area/length",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "998.4",
+   "description": "Removal of supply plenum debris",
+   "qty": 100,
+   "unit": "CY",
+   "office_estimate": 375,
+   "low_bid": 969,
+   "two_bid_avg": 400.33,
+   "category": "Ventilation plenums & ducts",
+   "maps_to": null
+  },
+  {
+   "item": "998.5",
+   "description": "I-90 supply plenum precast SIP form removal",
+   "qty": 5,
+   "unit": "EA",
+   "office_estimate": 30000,
+   "low_bid": 69400,
+   "two_bid_avg": 32150,
+   "category": "Ventilation plenums & ducts",
+   "maps_to": null
+  },
+  {
+   "item": "998.61",
+   "description": "Replacement cover for standpipe trench",
+   "qty": 3481,
+   "unit": "LF",
+   "office_estimate": 275,
+   "low_bid": 1265,
+   "two_bid_avg": 1625,
+   "category": "Standpipe & trench",
+   "maps_to": {
+    "unit_type": "area/length",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.71",
+   "description": "Vent building 1 egress corridor drainage",
+   "qty": 1,
+   "unit": "LS",
+   "office_estimate": 350000,
+   "low_bid": 155800,
+   "two_bid_avg": 250250,
+   "category": "Drainage & pump stations",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "998.72",
+   "description": "Vent building 1 egress corridor drainage - electrical/SCADA",
+   "qty": 1,
+   "unit": "LS",
+   "office_estimate": 150000,
+   "low_bid": 653200,
+   "two_bid_avg": 580210,
+   "category": "Drainage & pump stations",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.73",
+   "description": "Vent building 1 egress corridor drainage - plumbing",
+   "qty": 1,
+   "unit": "LS",
+   "office_estimate": 150000,
+   "low_bid": 208100,
+   "two_bid_avg": 195600,
+   "category": "Drainage & pump stations",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "998.81",
+   "description": "Settling tank cleaning, inspection and lining",
+   "qty": 6,
+   "unit": "EA",
+   "office_estimate": 100000,
+   "low_bid": 83500,
+   "two_bid_avg": 125500,
+   "category": "Drainage & pump stations",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "998.82",
+   "description": "Pump station sluice gate operator repair",
+   "qty": 3,
+   "unit": "EA",
+   "office_estimate": 14000,
+   "low_bid": 95600,
+   "two_bid_avg": 95500,
+   "category": "Drainage & pump stations",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "998.821",
+   "description": "Pump station sluice gate repair - type A",
+   "qty": 1,
+   "unit": "EA",
+   "office_estimate": 8000,
+   "low_bid": 97900,
+   "two_bid_avg": 135650,
+   "category": "Drainage & pump stations",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "light"
+   }
+  },
+  {
+   "item": "998.822",
+   "description": "Pump station sluice gate repair - type B",
+   "qty": 3,
+   "unit": "EA",
+   "office_estimate": 25000,
+   "low_bid": 133500,
+   "two_bid_avg": 168000,
+   "category": "Drainage & pump stations",
+   "maps_to": {
+    "unit_type": "system",
+    "tier": "heavy"
+   }
+  },
+  {
+   "item": "998.91",
+   "description": "Parcel 22 phase 1",
+   "qty": 1,
+   "unit": "LS",
+   "office_estimate": 587500,
+   "low_bid": 558900,
+   "two_bid_avg": 550750,
+   "category": "Steel, electrical & other",
+   "maps_to": null
+  }
+ ]
+}

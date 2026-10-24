@@ -25,7 +25,9 @@ def cost_of_waiting(funded_items: List[dict], ctx: RiskContext, rows_by_key: Dic
             continue
         cost_now += a["cost_point"]
         if a["tunnel_number"] not in mobilized:
+            # Same mobilization either way, so waiting never looks cheaper than it is.
             cost_now += cfg.fixed_mobilization_per_tunnel
+            cost_in_2y += cfg.fixed_mobilization_per_tunnel
             mobilized.add(a["tunnel_number"])
 
         P = transition_matrix(_rates_for(ctx, row["element_number"], cfg))

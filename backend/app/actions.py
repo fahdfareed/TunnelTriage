@@ -1,6 +1,6 @@
 """Candidate repair actions, costs, and benefit (SPEC §6.5).
 
-All unit costs are PLACEHOLDER ASSUMPTIONS, never real MassDOT costs.
+Unit rates are derived from awarded prices in MassDOT contract 130548 (see validation.py).
 """
 from __future__ import annotations
 
@@ -35,13 +35,23 @@ def _apply_to_cs1(cs: List[int], states: List[int]) -> List[int]:
     return out
 
 
+SYSTEM_CATEGORIES = {"Mechanical", "Electrical", "Fire/Life Safety/Security"}
+
+
+def cost_unit(d: dict) -> str:
+    """Unit-cost class: whole systems (fans, fire protection, ...) are priced at lump-sum scale."""
+    unit = d.get("unit", "area/length")
+    if unit == "each" and d.get("category") in SYSTEM_CATEGORIES:
+        return "system"
+    return unit
+
+
 def _cost_point(ctx: RiskContext, row: dict, states_moved: List[int]) -> float:
     d = ctx.dictionary.get(row["element_number"], {})
-    unit = d.get("unit", "area/length")
-    uc = ctx.cfg.unit_cost[unit]
+    uc = ctx.cfg.unit_cost[cost_unit(d)]
     per = {2: uc.cs3, 3: uc.cs4}  # state index 2 -> cs3, 3 -> cs4
     total = sum(row["cs"][s] * per[s] for s in states_moved)
-    return ctx.cfg.cost_scale * total
+    return ctx.cfg.cost_scale * total * (1 + ctx.cfg.mobilization_pct)
 
 
 def _benefit(ctx: RiskContext, row: dict, post_cs: List[int], cfg: Config) -> float:
@@ -122,5 +132,5 @@ def backlog_calibration(ctx: RiskContext, rows: List[dict], cfg: Config) -> dict
         "backlog_cs4_cost": cs4_cost,
         "backlog_cs34_cost": cs34_cost,
         "tunnels_5yr_program_anchor": 370_000_000,
-        "note": "Placeholder unit costs. Adjust cost_scale by hand if backlog is wildly off.",
+        "note": "Unit rates derived from MassDOT contract 130548 awarded prices; backlog is a sanity check against the 5-year program.",
     }

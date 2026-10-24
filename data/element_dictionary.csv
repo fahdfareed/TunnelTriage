@@ -1,59 +1,59 @@
 element_number,name,category,unit,criticality,is_system_element,source
-10001,Element 10001,Unknown,area/length,3,False,fallback
-10002,Element 10002,Unknown,area/length,3,False,fallback
-10010,Element 10010,Unknown,area/length,3,False,fallback
-10011,Element 10011,Unknown,area/length,3,False,fallback
-10012,Element 10012,Unknown,area/length,3,False,fallback
-10019,Element 10019,Unknown,area/length,3,False,fallback
-10020,Element 10020,Unknown,area/length,3,False,fallback
-10021,Element 10021,Unknown,area/length,3,False,fallback
-10029,Element 10029,Unknown,area/length,3,False,fallback
-10031,Element 10031,Unknown,area/length,3,False,fallback
-10041,Element 10041,Unknown,area/length,3,False,fallback
-10049,Element 10049,Unknown,area/length,3,False,fallback
-10051,Element 10051,Unknown,area/length,3,False,fallback
-10059,Element 10059,Unknown,area/length,3,False,fallback
-10061,Element 10061,Unknown,area/length,3,False,fallback
-10070,Element 10070,Unknown,area/length,3,False,fallback
-10071,Element 10071,Unknown,area/length,3,False,fallback
-10080,Element 10080,Unknown,area/length,3,False,fallback
-10090,Element 10090,Unknown,area/length,3,False,fallback
-10091,Element 10091,Unknown,area/length,3,False,fallback
-10099,Element 10099,Unknown,area/length,3,False,fallback
-10101,Element 10101,Unknown,area/length,3,False,fallback
-10111,Element 10111,Unknown,area/length,3,False,fallback
-10120,Element 10120,Unknown,area/length,3,False,fallback
-10130,Element 10130,Unknown,area/length,3,False,fallback
-10131,Element 10131,Unknown,area/length,3,False,fallback
-10132,Element 10132,Unknown,area/length,3,False,fallback
-10133,Element 10133,Unknown,area/length,3,False,fallback
-10139,Element 10139,Unknown,area/length,3,False,fallback
-10140,Element 10140,Unknown,area/length,3,False,fallback
-10151,Element 10151,Unknown,area/length,3,False,fallback
-10158,Element 10158,Unknown,area/length,3,False,fallback
-10161,Element 10161,Unknown,area/length,3,False,fallback
-10169,Element 10169,Unknown,area/length,3,False,fallback
-10170,Element 10170,Unknown,area/length,3,False,fallback
-10200,Element 10200,Unknown,each,3,True,fallback
-10201,Element 10201,Unknown,each,3,True,fallback
-10300,Element 10300,Unknown,each,3,True,fallback
-10301,Element 10301,Unknown,each,3,True,fallback
-10400,Element 10400,Unknown,each,3,True,fallback
-10500,Element 10500,Unknown,each,3,True,fallback
-10550,Element 10550,Unknown,each,3,True,fallback
-10600,Element 10600,Unknown,each,3,True,fallback
-10601,Element 10601,Unknown,area/length,3,False,fallback
-10620,Element 10620,Unknown,each,3,True,fallback
-10621,Element 10621,Unknown,area/length,3,False,fallback
-10650,Element 10650,Unknown,each,3,True,fallback
-10700,Element 10700,Unknown,each,3,True,fallback
-10750,Element 10750,Unknown,each,3,True,fallback
-10800,Element 10800,Unknown,each,3,True,fallback
-10850,Element 10850,Unknown,each,3,True,fallback
-10870,Element 10870,Unknown,each,3,True,fallback
-10890,Element 10890,Unknown,each,3,True,fallback
-10910,Element 10910,Unknown,each,3,True,fallback
-10911,Element 10911,Unknown,each,3,True,fallback
-10950,Element 10950,Unknown,area/length,3,False,fallback
-10951,Element 10951,Unknown,area/length,3,False,fallback
-10952,Element 10952,Unknown,area/length,3,False,fallback
+10001,Cast-in-Place Concrete Tunnel Liner,Structural,area/length,4,False,SNTI
+10002,Precast Concrete Tunnel Liner,Structural,area/length,4,False,SNTI
+10010,Steel Tunnel Roof Girders,Structural,area/length,4,False,SNTI
+10011,Concrete Tunnel Roof Girders,Structural,area/length,4,False,SNTI
+10012,Prestressed Concrete Tunnel Roof Girders,Structural,area/length,4,False,SNTI
+10019,Other Tunnel Roof Girders,Structural,area/length,4,False,SNTI
+10020,Steel Columns/Piles,Structural,each,4,True,SNTI
+10021,Concrete Columns/Piles,Structural,each,4,True,SNTI
+10029,Other Columns/Piles,Structural,each,4,True,SNTI
+10031,Concrete Cross Passageway,Structural,area/length,4,False,SNTI
+10041,Concrete Interior Walls,Structural,area/length,4,False,SNTI
+10049,Other Interior Walls,Structural,area/length,4,False,SNTI
+10051,Concrete Portal,Structural,area/length,4,False,SNTI
+10059,Other Portal,Structural,area/length,4,False,SNTI
+10061,Concrete Ceiling Slab,Structural,area/length,5,False,SNTI
+10070,Steel Ceiling Girder,Structural,area/length,5,False,SNTI
+10071,Concrete Ceiling Girder,Structural,area/length,5,False,SNTI
+10080,Steel Hangers and Anchorages,Structural,each,5,True,SNTI
+10090,Steel Ceiling Panels,Structural,area/length,5,False,SNTI
+10091,Concrete Ceiling Panels,Structural,area/length,5,False,SNTI
+10099,Other Ceiling Panels,Structural,area/length,5,False,SNTI
+10101,Concrete Invert Slab,Structural,area/length,4,False,SNTI
+10111,Concrete Slab-on-Grade,Structural,area/length,4,False,SNTI
+10120,Steel Invert Girder,Structural,area/length,4,False,SNTI
+10130,Strip Seal Expansion Joint,Joints & Gaskets,area/length,3,False,SNTI
+10131,Pourable Joint Seal,Joints & Gaskets,area/length,3,False,SNTI
+10132,Compression Joint Seal,Joints & Gaskets,area/length,3,False,SNTI
+10133,Assembly Joint With Seal,Joints & Gaskets,area/length,3,False,SNTI
+10139,Other Joint,Joints & Gaskets,area/length,3,False,SNTI
+10140,Gaskets,Joints & Gaskets,area/length,3,False,SNTI
+10151,Concrete Wearing Surface,Civil,area/length,2,False,SNTI
+10158,Asphalt Wearing Surface,Civil,area/length,2,False,SNTI
+10161,Concrete Traffic Barrier,Civil,area/length,2,False,SNTI
+10169,Other Traffic Barrier,Civil,area/length,2,False,SNTI
+10170,Steel Pedestrian Railing,Civil,area/length,2,False,SNTI
+10200,Ventilation System,Mechanical,each,4,True,SNTI
+10201,Fans,Mechanical,each,4,True,SNTI
+10300,Drainage and Pumping System,Mechanical,each,4,True,SNTI
+10301,Pumps,Mechanical,each,4,True,SNTI
+10400,Emergency Generator System,Electrical,each,4,True,SNTI
+10500,Electrical Distribution System,Electrical,each,4,True,SNTI
+10550,Emergency Distribution System,Electrical,each,4,True,SNTI
+10600,Tunnel Lighting Systems,Electrical,each,4,True,SNTI
+10601,Tunnel Lighting Fixtures,Electrical,each,4,True,SNTI
+10620,Emergency Lighting Systems,Electrical,each,4,True,SNTI
+10621,Emergency Lighting Fixtures,Electrical,each,4,True,SNTI
+10650,Fire Detection System,Fire/Life Safety/Security,each,5,True,SNTI
+10700,Fire Protection System,Fire/Life Safety/Security,each,5,True,SNTI
+10750,Emergency Communications System,Fire/Life Safety/Security,each,5,True,SNTI
+10800,Tunnel Operations and Security System,Fire/Life Safety/Security,each,5,True,SNTI
+10850,Traffic Sign,Signs,each,2,True,SNTI
+10870,Egress Sign,Signs,each,2,True,SNTI
+10890,Variable Message Board,Signs,each,2,True,SNTI
+10910,Lane Signal,Signs,each,2,True,SNTI
+10911,Lane Signal Fixture,Signs,each,2,True,SNTI
+10950,Steel Corrosion Protective Coating,Protective Systems,area/length,2,False,SNTI
+10951,Concrete Corrosion Protective Coating,Protective Systems,area/length,2,False,SNTI
+10952,Fire Protective Coating,Protective Systems,area/length,2,False,SNTI

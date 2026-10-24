@@ -30,17 +30,26 @@ criticality_by_category:
   Unknown: 3
 criticality_overrides: {}
 overhead_keywords: [ceiling, hanger]
+# Unit rates are medians of the awarded (low-bid) unit prices in MassDOT contract 130548
+# (Aug 2025); see data/calibration/ and app/validation.py. cs3 = lighter repair, cs4 = heavier.
+# "system" = whole mechanical / electrical / fire-life-safety systems priced per unit (lump-sum scale).
 unit_cost:
-  area/length: { cs3: 120, cs4: 300 }
-  each:        { cs3: 15000, cs4: 40000 }
+  area/length: { cs3: 163, cs4: 498 }
+  each:        { cs3: 12300, cs4: 17650 }
+  system:      { cs3: 126850, cs4: 292000 }
 cost_scale: 1.0
-fixed_mobilization_per_tunnel: 250000
+# Mobilization was 3.0% of the bid in contract 130548 ($1.56M of $52.18M), one per contract,
+# so it is modeled as a percentage on repair cost rather than a fee per tunnel.
+mobilization_pct: 0.03
+fixed_mobilization_per_tunnel: 0
+# Program budget on top of the construction bid (contract 130548 staff summary).
+program_overheads: { contingency: 0.15, construction_engineering: 0.05, traffic_police: 0.04 }
 bid_vs_estimate: { low: -0.32, high: 0.35 }
 safety_floor:
   enabled: true
   min_criticality: 5
   min_cs4_share: 0.10
-budget_slider: { min: 0, max: 150000000, step: 1000000, default: 74000000 }
+budget_slider: { min: 0, max: 50000000, step: 1000000, default: 0 }
 llm:
   provider: none
   model: claude-sonnet-5-5

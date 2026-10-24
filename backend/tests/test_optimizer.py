@@ -122,3 +122,15 @@ def test_forced_items_included_when_they_fit(cfg):
     funded_ids = {i["action_id"] for i in plan["funded"]}
     assert forced.issubset(funded_ids)
     assert plan["forced_unmet"] == []
+
+
+def test_exact_residual_risk_and_floor():
+    from app.state import STATE
+    STATE.load()
+    lo = STATE.make_plan(1_000_000)
+    hi = STATE.make_plan(50_000_000)
+    assert lo["risk_now_after"] <= lo["risk_now"] + 1e-6
+    assert hi["risk_now_after"] < lo["risk_now_after"]
+    assert abs(sum(g["risk_now"] for g in hi["by_group"]) - hi["risk_now"]) < 1e-6
+    assert hi["risk_h_floor"] <= hi["risk_h_with_plan"] + 1e-6
+    assert hi["n_rows_no_action"] > 0

@@ -35,6 +35,12 @@ class BidVsEstimate(BaseModel):
     high: float
 
 
+class ProgramOverheads(BaseModel):
+    contingency: float
+    construction_engineering: float
+    traffic_police: float
+
+
 class SafetyFloor(BaseModel):
     enabled: bool
     min_criticality: int
@@ -70,8 +76,10 @@ class Config(BaseModel):
     overhead_keywords: List[str]
     unit_cost: Dict[str, UnitCostPair]
     cost_scale: float
+    mobilization_pct: float = 0.0
     fixed_mobilization_per_tunnel: int
     bid_vs_estimate: BidVsEstimate
+    program_overheads: ProgramOverheads
     safety_floor: SafetyFloor
     budget_slider: BudgetSlider
     llm: LLMConfig

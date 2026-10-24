@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../api";
 import type { Finding, ParseResult, Tunnel } from "../types";
+import { tunnelLabel } from "../format";
 
 const DEMO: Partial<Finding>[] = [
   { tunnel_number: "B16T30TWEDOTTE1", element_number: 10132, quantity: 20, condition_state: 4,
@@ -100,7 +101,7 @@ export function FindingsPanel({
           <option value="">— choose —</option>
           {tunnels.map((t) => (
             <option key={t.tunnel_number} value={t.tunnel_number}>
-              {t.name} ({t.tunnel_number})
+              {tunnelLabel(t.name)}
             </option>
           ))}
         </select>
@@ -150,7 +151,7 @@ export function FindingsPanel({
           style={{ display: "flex", justifyContent: "space-between", padding: "4px 0", borderBottom: "1px solid var(--border)" }}
         >
           <div>
-            <span className="chip sim">{f.source}</span> {f.tunnel_number} · el {f.element_number} ·
+            <span className="chip sim">{f.source}</span> {tunnelLabel(tunnels.find((t) => t.tunnel_number === f.tunnel_number)?.name ?? "Tunnel")} ·
             qty {f.quantity} · CS{f.condition_state}
             <div style={{ color: "var(--muted)", fontSize: 11 }}>{f.note}</div>
           </div>

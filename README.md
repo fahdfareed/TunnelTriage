@@ -13,7 +13,7 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python scripts/build_data.py            # fetch + cache + process (data is committed)
 uvicorn app.main:app --reload
-pytest -q                               # 24 tests
+pytest -q                               # 28 tests
 ```
 
 Frontend (http://localhost:5173, proxies /api to the backend):
@@ -24,6 +24,6 @@ npm install
 npm run dev
 ```
 
-`POST /api/plan {"budget": 74000000}` returns the funded repair plan. LLM is optional
+`POST /api/plan {"budget": 25000000}` returns the funded repair plan. LLM is optional
 (`LLM_PROVIDER=none` by default; set `anthropic` or `bedrock` to enable the AI memo and
 free-text finding parsing — both have deterministic fallbacks).

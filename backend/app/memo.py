@@ -77,8 +77,10 @@ def _collect_numbers(obj) -> set:
             pass
         elif isinstance(x, (int, float)):
             nums.add(round(float(x), 1))
+            nums.add(float(round(x)))  # whole-dollar form
             nums.add(round(float(x) / 1e6, 1))  # $X.YM form
             nums.add(round(float(x) / 1e3, 1))  # $X.YK form
+            nums.add(float(round(x / 1e3)))  # $XK form
         elif isinstance(x, str):
             for m in _NUM.findall(x):
                 try:
@@ -128,25 +130,44 @@ def check_numbers(text: str, facts: dict) -> List[str]:
 # ---- Template fallback (SPEC §9) ----
 
 def _m(n: float) -> str:
-    return f"${n / 1e6:.1f}M"
+    """$1.4M for millions, $680K for thousands, so small costs keep their detail."""
+    if round(n / 1e3) >= 1000:
+        return f"${n / 1e6:.1f}M"
+    if n >= 1e3:
+        return f"${round(n / 1e3)}K"
+    return f"${round(n)}"
+
+
+def _t(name: str) -> str:
+    """'THOMAS P. TIP ONEILL JR TUNNEL - 93SB' -> 'Thomas P. Tip Oneill Jr Tunnel'."""
+    name = re.sub(r"\s+-\s+\w+$", "", name).lower()
+    name = re.sub(r"\b[a-z]", lambda m: m.group(0).upper(), name)
+    return re.sub(r"\b(Eb|Wb|Nb|Sb)\b", lambda m: m.group(0).upper(), name)
+
+
+_ACTION = {"FIX_SEVERE": "repair severe damage", "FIX_POOR_AND_SEVERE": "repair poor and severe damage"}
+
+
+def _n(x: float) -> str:
+    return f"{round(x):,}"
 
 
 def template_memo(facts: dict) -> str:
     f = facts
     funded = "\n".join(
-        f"- {i['tunnel_name']}: element {i['element_number']} ({i['element_name']}), "
-        f"{i['action']}, qty {i['qty']}, est. {_m(i['cost_low'])}-{_m(i['cost_high'])}"
+        f"- {_t(i['tunnel_name'])}: {i['element_name']}, "
+        f"{_ACTION.get(i['action'], i['action'])}, qty {i['qty']}, est. {_m(i['cost_low'])}-{_m(i['cost_high'])}"
         for i in f["top_funded"]
     ) or "- (no items funded at this budget)"
     unfunded = "\n".join(
-        f"- {i['tunnel_name']}: element {i['element_number']} ({i['element_name']})"
+        f"- {_t(i['tunnel_name'])}: {i['element_name']}"
         for i in f["top_unfunded"]
     ) or "- (none)"
     return f"""# Tunnel repair funding recommendation
 
 ## 1. Recommendation
 With a budget of {_m(f['budget'])}, fund the plan below to cut modeled {f['horizon']}-year
-risk by {f['risk_reduction_pct']}% (from {f['risk_h_do_nothing']} to {f['risk_h_with_plan']} risk points).
+risk by {f['risk_reduction_pct']}% (from {_n(f['risk_h_do_nothing'])} to {_n(f['risk_h_with_plan'])} risk points).
 Estimated cost is {_m(f['total_cost_low'])}-{_m(f['total_cost_high'])} (point estimate {_m(f['total_cost_point'])}).
 
 ## 2. What this budget funds
@@ -156,15 +177,16 @@ Estimated cost is {_m(f['total_cost_low'])}-{_m(f['total_cost_high'])} (point es
 Top unfunded items by benefit:
 {unfunded}
 Waiting 2 years raises repair cost about {f['cost_of_waiting']['cost_increase_pct']}% and
-absorbs {f['cost_of_waiting']['extra_risk_2y']} risk-point-years of exposure (excludes inflation).
+absorbs {_n(f['cost_of_waiting']['extra_risk_2y'])} risk-point-years of exposure (excludes inflation).
 
 ## 4. Safety-critical items
 Safety-floor items not covered by this budget: {f['forced_unmet_count']}.
-Current statewide risk index: {f['risk_now']} risk points.
+Current risk index: {_n(f['risk_now'])} risk points.
 
 ## 5. Assumptions and data notes
-Unit costs are planning placeholders, not MassDOT costs. Deterioration rates are default
-(not calibrated). Element names source: {f['assumptions']['dictionary_source']}.
+Unit rates are medians of the unit prices MassDOT awarded in its 2025 tunnel preservation
+contract (see the Validation tab); quantities come from federal condition data, not site
+takeoffs. Deterioration rates are default (not calibrated). Element names source: {f['assumptions']['dictionary_source']}.
 Solver: {f['solver']}. Findings applied in this scenario: {f['findings_applied']}.
 Planning tool using public FHWA data and stated assumptions. Not an engineering assessment.
 """

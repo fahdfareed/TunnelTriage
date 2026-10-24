@@ -69,6 +69,18 @@ def _apply_criticality(rows: Dict[int, dict], cfg: Config) -> None:
             row["criticality"] = cfg.criticality_overrides[n]
 
 
+def snti_category(n: int) -> str:
+    """SNTI element-number ranges -> category (SPEC §3.3)."""
+    for upper, cat in (
+        (10130, "Structural"), (10150, "Joints & Gaskets"), (10200, "Civil"),
+        (10400, "Mechanical"), (10650, "Electrical"), (10850, "Fire/Life Safety/Security"),
+        (10950, "Signs"),
+    ):
+        if n < upper:
+            return cat
+    return "Protective Systems"
+
+
 def try_snti_enrich(rows: Dict[int, dict], pdf_path: Path | None) -> bool:
     """Attempt SNTI PDF name extraction. Returns True if it enriched >= 30 elements.
 
@@ -88,18 +100,19 @@ def try_snti_enrich(rows: Dict[int, dict], pdf_path: Path | None) -> bool:
                 t = page.extract_text() or ""
                 text_parts.append(t)
         text = "\n".join(text_parts)
-        pat = re.compile(r"^\s*(1\d{4})\s+(.+?)\s+(SF|LF|EA|sq\.?\s*ft|ft|each)?\s*$", re.M)
-        unit_map = {"SF": "area/length", "LF": "area/length", "EA": "each",
-                    "sq ft": "area/length", "sqft": "area/length", "ft": "area/length",
-                    "each": "each"}
+        # SNTI element table lines look like "10130 Strip Seal Expansion Joint length, ft"
+        # (a category word from the left column may precede the number).
+        pat = re.compile(r"\b(1\d{4})\s+([A-Za-z][A-Za-z/ \-]+?)\s+(area, ft2|length, ft|each)\s*$", re.M)
+        unit_map = {"area, ft2": "area/length", "length, ft": "area/length", "each": "each"}
         enriched = 0
         for m in pat.finditer(text):
             n = int(m.group(1))
             if n not in rows:
                 continue
             name = m.group(2).strip()
-            unit_raw = (m.group(3) or "").strip().lower().replace(".", "")
+            unit_raw = (m.group(3) or "").strip().lower()
             rows[n]["name"] = name
+            rows[n]["category"] = snti_category(n)
             rows[n]["source"] = "SNTI"
             if unit_raw in unit_map:
                 rows[n]["unit"] = unit_map[unit_raw]

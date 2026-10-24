@@ -5,6 +5,8 @@ import type {
   Memo,
   ParseResult,
   Plan,
+  Curve,
+  Validation,
   Tunnel,
   TunnelDetail,
 } from "./types";
@@ -41,6 +43,8 @@ export const api = {
   constants: () => get<Record<string, unknown>>("/constants"),
   plan: (budget: number, horizon?: number) =>
     post<Plan>("/plan", { budget, horizon }),
+  validation: () => get<Validation>("/validation"),
+  curve: () => get<Curve>("/curve"),
   findings: () => get<Finding[]>("/findings"),
   addFinding: (f: Partial<Finding>) =>
     post<{ finding: Finding; affected_row_key: string }>("/findings", f),

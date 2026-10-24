@@ -10,7 +10,7 @@ import {
 } from "recharts";
 import { api } from "../api";
 import type { TunnelDetail as TD } from "../types";
-import { num } from "../format";
+import { num, tunnelLabel } from "../format";
 import { StackedBar } from "./StackedBar";
 
 export function TunnelDetail({ tunnelNumber }: { tunnelNumber: string | null }) {
@@ -32,7 +32,7 @@ export function TunnelDetail({ tunnelNumber }: { tunnelNumber: string | null }) 
   return (
     <div>
       <h3 style={{ margin: "0 0 8px" }}>
-        {t.name} <span className="chip">{t.tunnel_number}</span>
+        {tunnelLabel(t.name)}
       </h3>
       <div className="kv">
         <span className="k">Year built</span><span>{t.year_built || "-"}</span>
@@ -65,9 +65,9 @@ export function TunnelDetail({ tunnelNumber }: { tunnelNumber: string | null }) 
           <tr>
             <th>Element</th>
             <th>Condition</th>
-            <th>Total</th>
-            <th>Crit.</th>
-            <th>Risk</th>
+            <th title="Quantity of this element (units, sq ft or ft)">Quantity</th>
+            <th title="Importance 1-5: how serious it is for the public if this element fails. Set by element category (fire/life safety = 5), not observed.">Importance (1-5)</th>
+            <th title="Condition x importance x traffic x size, in risk points">Risk</th>
             <th>Flags</th>
           </tr>
         </thead>
@@ -76,7 +76,6 @@ export function TunnelDetail({ tunnelNumber }: { tunnelNumber: string | null }) 
             <tr key={e.key}>
               <td>
                 {e.element_name}
-                <span className="chip">{e.element_number}</span>
               </td>
               <td><StackedBar shares={e.shares} /></td>
               <td>{num(e.total)}</td>

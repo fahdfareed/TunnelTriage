@@ -13,6 +13,7 @@ from .forecast import tunnel_risk_series
 from .memo import build_facts, generate_memo
 from .schemas import FindingRequest, MemoRequest, ParseRequest, PlanRequest
 from .state import STATE
+from .validation import validation_report
 
 
 @asynccontextmanager
@@ -132,6 +133,22 @@ def constants() -> dict:
 def plan(req: PlanRequest) -> dict:
     _require_loaded()
     return STATE.make_plan(req.budget, req.horizon)
+
+
+@app.get("/api/curve")
+def curve() -> dict:
+    """Risk today after repairs for each budget step on the slider (chart data)."""
+    _require_loaded()
+    sl = get_config().budget_slider
+    budgets = list(range(sl.min, sl.max + 1, sl.step))
+    return {"points": STATE.get_curve(budgets), "risk_now": STATE.plan_risk_now()}
+
+
+@app.get("/api/validation")
+def validation() -> dict:
+    """Backtest and unit-rate derivation against MassDOT contract 130548."""
+    _require_loaded()
+    return validation_report(STATE, get_config())
 
 
 # ---- Findings (SPEC §8) ----

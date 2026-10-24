@@ -88,6 +88,13 @@ export interface Waiting {
   note: string;
 }
 
+export interface GroupPlan {
+  group_id: string;
+  risk_now: number;
+  risk_now_after: number;
+  funded_cost: number;
+}
+
 export interface Plan {
   plan_id: string;
   budget: number;
@@ -95,14 +102,20 @@ export interface Plan {
   solver: string;
   funded: PlanItem[];
   unfunded_top: PlanItem[];
+  unfunded_by_group: Record<string, PlanItem[]>;
   total_cost_point: number;
   total_cost_low: number;
   total_cost_high: number;
+  program_cost_point: number;
   risk_now: number;
+  risk_now_after: number;
+  risk_h_floor: number;
+  n_rows_no_action: number;
+  n_rows_scored: number;
   risk_h_do_nothing: number;
   risk_h_with_plan: number;
   risk_reduction_pct: number;
-  by_group: { group_id: string; funded_cost: number }[];
+  by_group: GroupPlan[];
   forced_unmet: string[];
   waiting: Waiting;
 }
@@ -136,4 +149,35 @@ export interface Memo {
   markdown: string;
   source: string;
   warnings: string[];
+}
+
+export interface Curve {
+  points: { budget: number; risk_now_after: number }[];
+  risk_now: number;
+}
+
+export interface Validation {
+  contract: { contract: string; title: string; bid_opening: string; source: string; scope_tunnels: string[]; items_note: string };
+  bid: {
+    office_estimate: number; low_bid: number; second_bid: number;
+    low_bid_vs_estimate_pct: number; second_bid_vs_estimate_pct: number;
+    program_total: number; program_over_bid_pct: number;
+    mobilization_low_bid: number; mobilization_pct_of_bid: number; mobilization_two_bid_avg: number;
+    bidders_who_bid: number; eligible_bidders: number;
+  };
+  assumed_bid_range: { low: number; high: number };
+  unit_rates: {
+    unit_type: string; tier: string; state: string; our_rate: number; observed_median: number;
+    observed_min: number; observed_max: number; n_items: number; ratio: number;
+  }[];
+  spend_by_category: { category: string; amount: number }[];
+  backtest: {
+    backlog_severe_all: number; backlog_poor_and_severe_all: number; program_5yr_anchor: number; need_10yr_anchor: number;
+    model_cost_severe_only: number; model_cost_poor_and_severe: number; severe_only_ratio_to_bid: number;
+    plan_budget: number; plan_funded_total: number; scope_share_of_funded_pct: number;
+    scope_funded: Record<string, number>; top5_funded_groups: string[]; scope_tunnels_in_top5: number;
+    scope_tunnels_funded: number; callahan_ceiling_panels_good_pct: number | null; callahan_contract_spend: number; callahan_model_funded: number;
+    contract: { scope_tunnels: string[]; low_bid: number };
+  };
+  assumptions: { cost_scale: number; mobilization_pct: number; program_overheads: Record<string, number> };
 }

@@ -46,7 +46,7 @@ a { color: var(--accent); }
 .app { display: flex; flex-direction: column; height: 100vh; }
 
 header.app-header {
-  padding: 10px 18px;
+  padding: 8px 18px;
   border-bottom: 1px solid var(--border);
   background: var(--panel);
 }
@@ -64,11 +64,13 @@ header.app-header {
 .tile .label { color: var(--muted); font-size: 11px; text-transform: uppercase; }
 .tile .value { font-size: 18px; font-weight: 600; margin-top: 2px; }
 
-.budget-bar { padding: 10px 18px; border-bottom: 1px solid var(--border); background: var(--panel); }
+.budget-bar { padding: 6px 18px 4px; border-bottom: 1px solid var(--border); background: var(--panel); }
 .budget-bar input[type="range"] { width: 100%; }
 .ticks { display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; margin-top: 4px; }
 
-.main { display: flex; flex: 1; min-height: 0; }
+.layout { display: flex; flex: 1; min-height: 0; }
+.left-col { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.map-wrap { position: relative; flex: 1; min-height: 0; display: flex; }
 .map-pane { flex: 1; min-width: 0; }
 .right-pane { width: 620px; border-left: 1px solid var(--border); display: flex; flex-direction: column; min-height: 0; }
 
@@ -109,3 +111,42 @@ tr.clickable:hover { background: var(--panel2); cursor: pointer; }
 .footer-note { color: var(--muted); font-size: 11px; padding: 6px 18px; border-top: 1px solid var(--border); }
 .memo { background: var(--panel2); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
 .memo h1 { font-size: 17px; } .memo h2 { font-size: 14px; }
+
+@media print {
+  .map-pane, .budget-bar, .tabs, header.app-header .tagline, button, .footer-note { display: none !important; }
+  .app, .layout, .left-col, .right-pane, .tab-body { display: block !important; height: auto !important; overflow: visible !important; }
+  body { background: #fff; color: #000; }
+  table, th, td { color: #000 !important; border-color: #999 !important; }
+}
+
+/* ---- revamp ---- */
+.hero { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+.hero-tile { background: var(--panel2); border: 1px solid var(--border); border-radius: 10px; padding: 6px 14px; min-width: 170px; }
+.hero-tile .label { color: var(--muted); font-size: 11px; text-transform: uppercase; }
+.hero-tile .value { font-size: 26px; font-weight: 700; line-height: 1.15; }
+.hero-tile .sub { color: var(--muted); font-size: 12px; }
+.hero-tile.good .value { color: #66bb6a; }
+.hero-tile.mid .value { color: #ffb74d; }
+.hero-tile.bad .value { color: #ff7043; }
+.subtiles { display: flex; gap: 22px; margin-top: 6px; color: var(--muted); font-size: 12px; flex-wrap: wrap; }
+.subtiles b { color: var(--text); font-weight: 600; }
+
+.ticks { position: relative; height: 20px; margin-top: 2px; }
+.ticks button { position: absolute; white-space: nowrap; }
+
+.map-legend {
+  position: absolute; bottom: 24px; left: 10px; z-index: 1000;
+  background: rgba(15,20,25,0.92); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 12px; font-size: 12px; color: var(--text);
+}
+.map-toggle { position: absolute; top: 10px; left: 56px; z-index: 1000; display: flex; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+.map-toggle button { border-radius: 0; background: var(--panel); color: var(--muted); }
+.map-toggle button.active { background: var(--accent); color: #fff; }
+.leaflet-tooltip.map-label { background: rgba(15,20,25,0.85); color: #fff; border: 1px solid var(--border); font-size: 11px; box-shadow: none; }
+.leaflet-tooltip.map-label::before { display: none; }
+.chart { background: var(--panel2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; margin-bottom: 12px; }
+.why { color: var(--muted); font-size: 12px; }
+.item-sub { color: var(--muted); font-size: 11px; }
+.leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(0.75) contrast(0.9) saturate(0.15); }
+.tabs.sub { border-bottom: 1px solid var(--border); background: transparent; margin-top: 4px; }
+.tabs.sub button { padding: 5px 12px; font-size: 12px; }
