@@ -8,8 +8,10 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import get_config
 from .constants import ANCHOR_LABELS, BUDGET_ANCHORS, DATA_YEAR, SOURCES
+from .findings import new_finding, parse_text
 from .forecast import tunnel_risk_series
-from .schemas import PlanRequest
+from .memo import build_facts, generate_memo
+from .schemas import FindingRequest, MemoRequest, ParseRequest, PlanRequest
 from .state import STATE
 
 
@@ -130,3 +132,51 @@ def constants() -> dict:
 def plan(req: PlanRequest) -> dict:
     _require_loaded()
     return STATE.make_plan(req.budget, req.horizon)
+
+
+# ---- Findings (SPEC §8) ----
+
+@app.get("/api/findings")
+def list_findings() -> list:
+    _require_loaded()
+    return STATE.findings
+
+
+@app.post("/api/findings")
+def add_finding(req: FindingRequest) -> dict:
+    _require_loaded()
+    finding = new_finding(req.model_dump())
+    affected_row_key = STATE.add_finding(finding)
+    return {"finding": finding, "affected_row_key": affected_row_key}
+
+
+@app.delete("/api/findings/{finding_id}")
+def delete_finding(finding_id: str) -> dict:
+    _require_loaded()
+    return {"ok": STATE.remove_finding(finding_id)}
+
+
+@app.delete("/api/findings")
+def reset_findings() -> dict:
+    _require_loaded()
+    STATE.reset_findings()
+    return {"ok": True}
+
+
+@app.post("/api/findings/parse")
+def parse_finding(req: ParseRequest) -> dict:
+    _require_loaded()
+    return parse_text(req.text, STATE.tunnels, STATE.dictionary, STATE.cfg)
+
+
+# ---- Memo (SPEC §9) ----
+
+@app.post("/api/memo")
+def memo(req: MemoRequest) -> dict:
+    _require_loaded()
+    plan = STATE.get_plan(req.plan_id)
+    if not plan:
+        raise HTTPException(404, "plan_id not found (re-run POST /plan)")
+    facts = build_facts(plan, plan["waiting"], STATE.findings, BUDGET_ANCHORS,
+                        STATE.dictionary_source())
+    return generate_memo(facts)

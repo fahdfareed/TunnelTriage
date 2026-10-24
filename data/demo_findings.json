@@ -1,0 +1,29 @@
+[
+  {
+    "tunnel_number": "B16T30TWEDOTTE1",
+    "element_number": 10132,
+    "epn": 0,
+    "quantity": 20,
+    "condition_state": 4,
+    "source": "simulated",
+    "note": "Simulated drone finding: section loss observed on overhead element."
+  },
+  {
+    "tunnel_number": "B16T37SUMDOTV10",
+    "element_number": 10061,
+    "epn": 0,
+    "quantity": 1500,
+    "condition_state": 4,
+    "source": "simulated",
+    "note": "Simulated inspector finding: active leak with spalling."
+  },
+  {
+    "tunnel_number": "B16T36CALDOTV12",
+    "element_number": 10070,
+    "epn": 0,
+    "quantity": 3000,
+    "condition_state": 3,
+    "source": "simulated",
+    "note": "Simulated drone finding: delamination on liner."
+  }
+]

@@ -1,18 +1,21 @@
-"""In-memory application state: base data, dictionary, risk context, plan cache.
+"""In-memory application state: base data, dictionary, findings, plan cache.
 
-Loads processed JSON written by scripts/build_data.py. Findings (Phase 6) will
-layer on top of this later; for now it exposes the base data and analytics.
+The base element rows (as loaded from disk) are never mutated. Findings are
+stored in memory and applied on top of a deep-copied working set; any findings
+change rebuilds the working set and re-derives analytics, and invalidates the
+plan cache (SPEC §8).
 """
 from __future__ import annotations
 
+import copy
 import json
 import logging
-from pathlib import Path
 from typing import Dict, List, Optional
 
 from .actions import backlog_calibration, candidate_actions
 from .config import DATA_DIR, Config, get_config
 from .dictionary import read_csv
+from .findings import apply_finding
 from .optimizer import optimize
 from .risk import RiskContext
 from .waiting import cost_of_waiting
@@ -25,14 +28,17 @@ class AppState:
     def __init__(self) -> None:
         self.cfg: Config = get_config()
         self.tunnels: List[dict] = []
-        self.element_rows: List[dict] = []
+        self._base_rows: List[dict] = []
+        self.element_rows: List[dict] = []  # working set (base + findings)
         self.dictionary: Dict[int, dict] = {}
         self.data_notes: dict = {}
+        self.findings: List[dict] = []
         self.ctx: Optional[RiskContext] = None
         self._actions: List[dict] = []
         self._actions_by_id: Dict[str, dict] = {}
         self._rows_by_key: Dict[str, dict] = {}
         self._plan_cache: Dict[str, dict] = {}
+        self.calibration: dict = {}
         self.loaded = False
 
     def load(self) -> None:
@@ -40,20 +46,55 @@ class AppState:
             log.warning("Processed data not found at %s; run scripts/build_data.py", PROCESSED)
             return
         self.tunnels = json.loads((PROCESSED / "tunnels.json").read_text())
-        self.element_rows = json.loads((PROCESSED / "elements.json").read_text())
+        self._base_rows = json.loads((PROCESSED / "elements.json").read_text())
         self.data_notes = json.loads((PROCESSED / "data_notes.json").read_text())
         self.dictionary = read_csv(DATA_DIR / "element_dictionary.csv")
-        self._build_derived()
+        self._rebuild()
         self.loaded = True
 
-    def _build_derived(self) -> None:
-        self.ctx = RiskContext(self.tunnels, self.element_rows, self.dictionary, self.cfg)
+    def _rebuild(self) -> None:
+        """Rebuild the working set from base rows + applied findings, re-derive analytics."""
+        self.element_rows = copy.deepcopy(self._base_rows)
         self._rows_by_key = {r["key"]: r for r in self.element_rows}
+        affected: set = set()
+        for finding in self.findings:
+            key, _ = apply_finding(self._rows_by_key, finding)
+            affected.add(key)
+        # The working rows list must include any newly created rows.
+        self.element_rows = list(self._rows_by_key.values())
+
+        self.ctx = RiskContext(self.tunnels, self.element_rows, self.dictionary, self.cfg)
         for r in self.element_rows:
             r["_risk_now"] = self.ctx.row_risk(r) if r["scored"] else 0.0
         self._actions = candidate_actions(self.ctx, self.element_rows, self.cfg)
+        # Tag actions on finding-affected rows with the NEW_FINDING reason code.
+        for a in self._actions:
+            if a["row_key"] in affected and "NEW_FINDING" not in a["reason_codes"]:
+                a["reason_codes"].append("NEW_FINDING")
         self._actions_by_id = {a["action_id"]: a for a in self._actions}
         self.calibration = backlog_calibration(self.ctx, self.element_rows, self.cfg)
+        self._plan_cache.clear()
+
+    # ---- Findings management (SPEC §8) ----
+
+    def add_finding(self, finding: dict) -> str:
+        self.findings.append(finding)
+        self._rebuild()
+        return f"{finding['tunnel_number']}|{finding['element_number']}|{finding['epn']}"
+
+    def remove_finding(self, finding_id: str) -> bool:
+        before = len(self.findings)
+        self.findings = [f for f in self.findings if f["finding_id"] != finding_id]
+        if len(self.findings) != before:
+            self._rebuild()
+            return True
+        return False
+
+    def reset_findings(self) -> None:
+        self.findings = []
+        self._rebuild()
+
+    # ---- Planning ----
 
     def make_plan(self, budget: int, horizon: Optional[int] = None) -> dict:
         plan = optimize(self._actions, self.ctx, self._rows_by_key, self.cfg, budget, horizon)
