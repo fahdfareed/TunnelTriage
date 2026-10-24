@@ -1,6 +1,7 @@
 """FastAPI app: read routes + /plan (SPEC §10, Phases 0-4 scope)."""
 from __future__ import annotations
 
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException
@@ -23,9 +24,18 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="TunnelTriage", lifespan=lifespan)
+
+# In production on Vercel the frontend and backend share one origin (the browser
+# calls same-origin /api/* and the top-level rewrite routes it here), so CORS is
+# not needed. It is kept for local dev (Vite on :5173 proxying to :8000). Extra
+# origins can be allowed via the comma-separated CORS_ALLOW_ORIGINS env var.
+_cors_origins = ["http://localhost:5173"]
+_extra = os.environ.get("CORS_ALLOW_ORIGINS", "")
+if _extra:
+    _cors_origins += [o.strip() for o in _extra.split(",") if o.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=_cors_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )
