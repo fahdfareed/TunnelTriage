@@ -1,0 +1,48 @@
+state_fips: "25"
+include_suspect_elements: false
+weights: { w3: 0.3, w4: 1.0 }
+underwater_multiplier: 1.2
+size_factor_clip: [0.5, 2.0]
+horizon_years: 5
+forecast_years: 10
+transition:
+  default:  { p12: 0.05, p23: 0.04, p34: 0.03 }
+  system:   { p12: 0.08, p23: 0.06, p34: 0.05 }
+category_transition_group:
+  Structural: default
+  Civil: default
+  Joints & Gaskets: default
+  Protective Systems: default
+  Unknown: default
+  Mechanical: system
+  Electrical: system
+  Fire/Life Safety/Security: system
+  Signs: system
+criticality_by_category:
+  Structural: 4
+  Civil: 2
+  Joints & Gaskets: 3
+  Mechanical: 4
+  Electrical: 4
+  Fire/Life Safety/Security: 5
+  Signs: 2
+  Protective Systems: 2
+  Unknown: 3
+criticality_overrides: {}
+overhead_keywords: [ceiling, hanger]
+unit_cost:
+  area/length: { cs3: 120, cs4: 300 }
+  each:        { cs3: 15000, cs4: 40000 }
+cost_scale: 1.0
+fixed_mobilization_per_tunnel: 250000
+bid_vs_estimate: { low: -0.32, high: 0.35 }
+safety_floor:
+  enabled: true
+  min_criticality: 5
+  min_cs4_share: 0.10
+budget_slider: { min: 0, max: 150000000, step: 1000000, default: 74000000 }
+llm:
+  provider: none
+  model: claude-sonnet-5-5
+  max_tokens: 900
+  timeout_s: 20
