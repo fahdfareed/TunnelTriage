@@ -107,9 +107,12 @@ def normalize_tunnels(raw: List[dict]) -> List[dict]:
     """Build Tunnel dicts with group_id (SPEC §5.4)."""
     out: List[dict] = []
     for r in raw:
-        name = (r.get("tunnel_name_i2") or "").strip() or r["tunnel_number"]
+        # Inventory layer keys the tunnel as tunnel_number_i1; the element layer
+        # keys it as tunnel_number. They share the same value (the join key).
+        tn = r.get("tunnel_number_i1") or r.get("tunnel_number")
+        name = (r.get("tunnel_name_i2") or "").strip() or tn
         out.append({
-            "tunnel_number": r["tunnel_number"],
+            "tunnel_number": tn,
             "name": name,
             "year_built": r.get("year_built_a1") or 0,
             "year_rehab": r.get("year_rehabilitated_a2") or 0,

@@ -1,0 +1,28 @@
+{
+  "flag_counts": {
+    "DQ_SUSPECT_ALL_CS4": 39,
+    "DQ_BINARY_PATTERN": 18
+  },
+  "flag_examples": {
+    "DQ_SUSPECT_ALL_CS4": [
+      "B16T01CNEDOTEB1|10750|0",
+      "B16T02CNEDOTEB2|10750|0",
+      "B16T03CNEDOTEB3|10750|0"
+    ],
+    "DQ_BINARY_PATTERN": [
+      "B16T11TONDOTNB1|10950|10010",
+      "B16T14TONDOTNB3|10950|10010",
+      "B16T15TONDOTNB4|10950|10010"
+    ]
+  },
+  "orphan_rows": 0,
+  "suspect_elements": {
+    "numbers": [
+      10750
+    ],
+    "affected_rows": 39,
+    "excluded_by_default": true,
+    "explanation": "Some single-unit elements are recorded 100% in condition state 4 in nearly every Massachusetts tunnel. We treat that as a reporting convention, not a statewide crisis, and exclude them from scoring by default. Toggle with include_suspect_elements."
+  },
+  "data_year": 2025
+}

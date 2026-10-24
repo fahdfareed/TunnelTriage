@@ -1,6 +1,8 @@
 """FastAPI app: read routes + /plan (SPEC §10, Phases 0-4 scope)."""
 from __future__ import annotations
 
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -10,18 +12,20 @@ from .forecast import tunnel_risk_series
 from .schemas import PlanRequest
 from .state import STATE
 
-app = FastAPI(title="TunnelTriage")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    STATE.load()
+    yield
+
+
+app = FastAPI(title="TunnelTriage", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-@app.on_event("startup")
-def _startup() -> None:
-    STATE.load()
 
 
 @app.get("/api/health")
